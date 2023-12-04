@@ -1,0 +1,11 @@
+A = imread('06.jpg');
+imshow(A);
+AInv = imcomplement(A);
+imshow(AInv);
+BInv = imreducehaze(AInv);
+imshow(BInv);
+B = imcomplement(BInv);
+montage({AInv,A});
+BInv = imreducehaze(AInv, 'Method','approx','ContrastEnhancement','boost');
+BImp = imcomplement(BInv);
+figure, montage({A, BImp});
